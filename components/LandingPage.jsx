@@ -7,9 +7,9 @@ function LandingPage() {
     >
       <div className="max-md:mt-2 max-w-screen-xl w-full relative -mt-48 items-center flex justify-center align-center min-h-screen flex-col">
         <div className="text-center space-y-4">
-          <h1 className="text-6xl font-bold">Munchyroll</h1>
+          <h1 className="text-6xl font-bold">KiruaRoll</h1>
           <p className="text-primary dark:text-secondary text-base leading-6">
-            Munchyroll is an entertainment platform for people looking to<br />watch millions of movies, series, and animes for free.
+            KiruaRoll is an entertainment platform for people looking to<br />watch millions of movies, series, and animes for free.
           </p>
         </div>
         <div className="space-y-8">

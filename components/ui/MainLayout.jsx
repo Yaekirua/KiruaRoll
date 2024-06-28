@@ -44,8 +44,8 @@ function MainLayout({ children, useHead = true, banner, search = true, landing =
     <div className={`transition-colors duration-200 ${theme === 'dark' ? 'dark' : ''} dark:bg-[#121212] bg-fixed bg-red-500 bg-[radial-gradient(#ffffff90_1px,#f2f2f2_1px)] bg-[size:20px_20px] dark:bg-[radial-gradient(#ffffff15_1px,#121212_1px)]`}>
       {useHead && (
         <Head>
-          <title>Munchyroll</title>
-          <meta name="title" content="Munchyroll" />
+          <title>KiruaRoll</title>
+          <meta name="title" content="KiruaRoll" />
           <meta
             name="description"
             content="An ad-free anime streaming website aimed at minimality and responsive design. Share this with friends!"
@@ -54,7 +54,7 @@ function MainLayout({ children, useHead = true, banner, search = true, landing =
           <meta property="og:type" content="website" />
           <meta
             property="og:title"
-            content="Munchyroll"
+            content="KiruaRoll"
           />
           <meta
             property="og:description"
@@ -64,7 +64,7 @@ function MainLayout({ children, useHead = true, banner, search = true, landing =
           <meta property="twitter:card" content="summary_large_image" />
           <meta
             property="twitter:title"
-            content="Munchyroll"
+            content="KiruaRoll"
           />
           <meta
             property="twitter:description"

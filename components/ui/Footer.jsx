@@ -24,16 +24,16 @@ function Footer() {
       <footer className="pb-10 px-5 md:px-12 lg:px-16 xl:px-20 2xl:px-24">
         <div className="pt-2 flex justify-between border-t-[2px] border-primary w-full">
           <p className="z-50 dark:text-primary-light text-primary text-sm">
-            Made with ❤️ by <Link title="Jeydin21" className="hover:text-blue-400 dark:text-secondary text-primary underline transition-all" rel="noreferrer" target="_blank" href="https://j21.dev">Jeydin21</Link>
+            Made with ❤️ by <Link title="Jeydin21" className="hover:text-blue-400 dark:text-secondary text-primary underline transition-all" rel="noreferrer" target="_blank" href="https://portfolio-hizal.vercel.app/">YaeKirua</Link>
           </p>
           <div className="z-50 flex flex-row items-center space-x-3">
-            <Link title="Community Discord Server" href="https://discord.com/invite/JQsvHC4JUH" target="_blank" rel="noreferrer" className="transition-all hover:scale-125">
+            <Link title="Community Discord Server" href="" target="_blank" rel="noreferrer" className="transition-all hover:scale-125">
               <FaDiscord size={25} color="grey " />
             </Link>
-            <Link title="Munchyroll Source Code" href="https://github.com/Jeydin21/Munchyroll" target="_blank" rel="noreferrer" className="transition-all hover:scale-125">
+            <Link title="Munchyroll Source Code" href="https://github.com/Yaekirua" target="_blank" rel="noreferrer" className="transition-all hover:scale-125">
               <FaGithub size={25} color="grey" />
             </Link>
-            <Link title="Jeydin21's Twitter" href="https://x.com/Jeydin21" target="_blank" rel="noreferrer" className="transition-all hover:scale-125">
+            <Link title="Jeydin21's Twitter" href="https://twitter.com/hiizaal" target="_blank" rel="noreferrer" className="transition-all hover:scale-125">
               <FaTwitter size={25} color="grey" />
             </Link>
           </div>
