@@ -33,7 +33,7 @@ const Home = ({ trendingData }) => {
           name="description"
           content="An ad-free anime streaming website aimed at minimality and responsive design. Share this with friends!"
         />
-        <meta property="og:title" content="Home - Munchyroll " />
+        <meta property="og:title" content="Home - KiruaRoll " />
         <meta
           property="og:description"
           content="An ad-free anime streaming website aimed at minimality and responsive design. Share this with friends!"

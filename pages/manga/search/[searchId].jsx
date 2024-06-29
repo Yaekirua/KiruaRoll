@@ -24,14 +24,14 @@ function SearchPage({ mangaSearchData }) {
   return (
     <>
       <Head>
-        <title>{"Manga Search Results For: " + searchId + " - Munchyroll"}</title>
+        <title>{"Manga Search Results For: " + searchId + " - KiruaRoll"}</title>
         <meta
           name="description"
           content="An ad-free anime streaming website aimed at minimality and responsive design. Share this with friends!"
         />
         <meta
           property="og:title"
-          content={"Manga Search Results For: " + searchId + " - Munchyroll"}
+          content={"Manga Search Results For: " + searchId + " - KiruaRoll"}
         />
         <meta
           property="og:description"

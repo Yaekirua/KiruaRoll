@@ -23,12 +23,12 @@ function AnimeDetailsPage({ animeData, episodeData }) {
   return (
     <>
       <Head>
-        <title>{(animeData?.title.english || animeData?.title.romaji) + " - Munchyroll "}</title>
+        <title>{(animeData?.title.english || animeData?.title.romaji) + " - KiruaRoll "}</title>
         <meta name="description" content={animeData?.description} />
         <meta name="keywords" content={animeData?.genres} />
         <meta
           property="og:title"
-          content={"Watch " + (animeData?.title.english || animeData?.title.romaji) + " - Munchyroll "}
+          content={"Watch " + (animeData?.title.english || animeData?.title.romaji) + " - KiruaRoll "}
         />
         <meta property="og:description" content={animeData?.description} />
         <meta property="og:image" content={animeData?.image} />
