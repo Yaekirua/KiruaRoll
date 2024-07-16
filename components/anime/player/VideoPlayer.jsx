@@ -1,100 +1,58 @@
-import { useRef, useState, useEffect } from "react";
-import videojs from "video.js";
-import "@videojs/http-streaming";
-import "video.js/dist/video-js.css";
-import "videojs-hotkeys";
+import { useState, useEffect } from "react";
+import { getAnimeEpisodeLinks } from "../../../src/handlers/anime";
+import '@vidstack/react/player/styles/default/theme.css';
+import '@vidstack/react/player/styles/default/layouts/video.css';
+import { MediaPlayer, MediaProvider, Poster } from '@vidstack/react';
+import { defaultLayoutIcons, DefaultVideoLayout, DefaultAudioLayout } from '@vidstack/react/player/layouts/default';
 
 const corsLink = process.env.NEXT_PUBLIC_CORS_REQUEST_LINK
 
-const VideoPlayer = ({ videoSource }) => {
-  const videoRef = useRef();
-  const [player, setPlayer] = useState(undefined);
+const VideoPlayer = ({ episodeTitle, episodeName, episodeThumbnail, episodeNumber }) => {
+  const [episodeDataLink, setEpisodeDataLink] = useState(null);
 
   useEffect(() => {
-    return () => {
-      const video = videoRef.current;
-      if (player) {
-        player.dispose();
-      }
-      if (video) {
-        videoRef.current.pause();
-      }
-    };
-  }, []);
-
-  useEffect(() => {
-    if (player) {
-      player.src({
-        src: corsLink ? `${corsLink}/${videoSource}` : videoSource,
-        type: "application/x-mpegURL",
-      });
-      player.load();
-    }
-  }, [videoSource, player]);
-
-  useEffect(() => {
-    const videoJsOptions = {
-      autoplay: false,
-      controls: true,
-      fluid: true,
-      muted: false,
-      responsive: true,
-      preload: "auto",
-      liveui: true,
-      playbackRates: [0.5, 1, 1.5, 2, 4, 8],
-      enableSmoothSeeking: true,
-      playsinline: true,
-      nativeControlsForTouch: true,
-      notSupportedMessage: "If you see this, either the video is loading, or there is an error!",
-      preferFullWindow: true,
-    };
-
-    const p = videojs(
-      videoRef.current,
-      videoJsOptions,
-      function onPlayerReaady() {
-        this.hotkeys({
-          volumeStep: 0.1,
-          seekStep: 5,
-          alwaysCaptureHotkeys: true,
-          enableModifiersForNumbers: false,
-          enableMute: true,
-          enableNumbers: true,
-          enableVolumeScroll: false,
-          enableFullscreen: true,
-        });
-      },
-    );
-
-    setPlayer(p);
-    return () => {
-      if (player) {
-        player.dispose();
+    const fetchEpisodeData = async () => {
+      try {
+        const episodeData = await getAnimeEpisodeLinks(episodeName);
+        if (episodeData && episodeData.sources && episodeData.sources[3] && episodeData.sources[3].url) {
+          const defaultSource = episodeData.sources.find(source => source.quality === "default");
+          setEpisodeDataLink(defaultSource.url);
+        } else {
+          console.error("Episode data is missing or the expected structure is not met.");
+          setEpisodeDataLink(null); // Explicitly setting to null if condition fails
+        }
+      } catch (error) {
+        console.error("Failed to fetch episode data:", error);
+        setEpisodeDataLink(null); // Consider setting to a fallback URL or error state
       }
     };
-  }, []);
+
+    fetchEpisodeData();
+  }, [episodeName]); // Ensure episodeName is correctly triggering the effect
+
+   // Conditional rendering or providing a default src
+   if (!episodeDataLink) {
+    return <div className="flex justify-center items-center h-full">Loading...</div>; // Tailwind CSS for centering
+  }
+
+  let episodeThing = "";
+
+  if (episodeTitle) {
+    episodeThing = `Episode ${episodeNumber}: ${episodeTitle}`;
+  } else {
+    episodeThing = `Episode ${episodeNumber}`;
+  }
+
+
 
   return (
-    <div className="video-player-hls alignfull rounded-xl overflow-hidden">
-      <div data-vjs-player>
-        <video
-          id="videoPlayerHLS"
-          onContextMenu={(e) => e.preventDefault()}
-          ref={videoRef}
-          className="video-js vjs-big-play-centered"
-        ></video>
-      </div>
-    </div>
+    <MediaPlayer title={episodeThing} src={episodeDataLink} playsInline aspectRatio="16/9" load="eager" posterLoad="eager" streamType="on-demand" >
+      <MediaProvider />
+        <Poster src={episodeThumbnail} />
+      <DefaultAudioLayout icons={defaultLayoutIcons} />
+      <DefaultVideoLayout icons={defaultLayoutIcons} />
+    </MediaPlayer>
   );
-};
-
-VideoPlayer.defaultProps = {
-  className: "",
-  autoplay: false,
-  controls: true,
-  playbackRates: [0.25, 0.5, 0.75, 1, 1.25, 1.5, 1.75, 2],
-  poster: "",
-  sources: [],
 };
 
 export default VideoPlayer;
