@@ -28,12 +28,12 @@ const Home = ({ trendingData }) => {
   return (
     <>
       <Head>
-        <title>Home - KiruaRoll</title>
+        <title>Home - KakiAnime</title>
         <meta
           name="description"
-          content="An ad-free anime streaming website aimed at minimality and responsive design. Share this with friends!"
+          content="An ad-free anime streaming website in Malaysia aimed at minimality and responsive design. Share this with friends!"
         />
-        <meta property="og:title" content="Home - KiruaRoll " />
+        <meta property="og:title" content="Home - KakiAnime " />
         <meta
           property="og:description"
           content="An ad-free anime streaming website aimed at minimality and responsive design. Share this with friends!"
