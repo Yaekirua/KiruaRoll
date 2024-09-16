@@ -1,6 +1,6 @@
 {
-  "name": "Munchyroll",
-  "short_name": "Munchyroll",
+  "name": "KakiAnime",
+  "short_name": "KakiAnime",
   "description": "An ad-free anime streaming website aimed at minimalism and responsive design. Share this with friends!",
   "start_url": "/",
   "display": "standalone",

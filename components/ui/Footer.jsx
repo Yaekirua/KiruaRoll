@@ -24,7 +24,7 @@ function Footer() {
       <footer className="pb-10 px-5">
         <div className="pt-2 flex justify-between border-t-[2px] border-primary w-full">
           <p className="z-50 dark:text-primary-light text-primary text-sm">
-            Made with ❤️ by <Link title="Jeydin21" className="hover:text-blue-400 dark:text-secondary text-primary underline transition-all" rel="noreferrer" target="_blank" href="https://portfolio-hizal.vercel.app/">YaeKirua</Link>
+            Made with ❤️ by <Link title="Hizal" className="hover:text-blue-400 dark:text-secondary text-primary underline transition-all" rel="noreferrer" target="_blank" href="https://portfolio-hizal.vercel.app/">YaeKirua9006</Link>
           </p>
           <div className="z-50 flex flex-row items-center space-x-3">
             <Link title="Community Discord Server" href="" target="_blank" rel="noreferrer" className="transition-all hover:scale-125">
